@@ -1,3 +1,32 @@
+{% extends '_base.html' %}
 {% block content %}
-  <p>Hello World</p>
+  <nav>
+    <ul class="uld">
+    
+      <li hx-push-url="true" hx-get="{% url 'home' %}" hx-boost="true" hx-target="#website-content">Home</li>
+      <li hx-push-url="true" hx-get="{% url 'about' %}" hx-boost="true" hx-target="#website-content">About</li>
+      <li hx-push-url="true" hx-get="{% url 'contact' %}" hx-boost="true" hx-target="#website-content">Contact</li>
+    </ul>
+  </nav>
+
+  <div id="website-content">
+    {% include 'home-page.html' %}
+  </div>
+
+  <style>
+    .uld>li{
+      cursor: pointer;
+      margin: 20px;
+
+    }
+    .uld{
+      display:flex;
+      flex-direction: row;
+    }
+
+    #website{
+      margin:25px;
+    }
+    
+  </style>
 {% endblock content %}
